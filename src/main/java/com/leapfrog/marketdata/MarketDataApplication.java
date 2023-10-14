@@ -1,10 +1,7 @@
 package com.leapfrog.marketdata;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.kafka.core.KafkaTemplate;
 
 @SpringBootApplication
 public class MarketDataApplication {
@@ -18,13 +15,13 @@ public class MarketDataApplication {
         }*/
     }
 
-    @Bean
+    /*@Bean
     CommandLineRunner commandLineRunner(KafkaTemplate<String, String> template){
         return args -> {
             for(int i = 0; i < 100; i++) {
                 template.send("leapfrog", Integer.toString(i));
             }
         };
-    }
+    }*/
 
 }
