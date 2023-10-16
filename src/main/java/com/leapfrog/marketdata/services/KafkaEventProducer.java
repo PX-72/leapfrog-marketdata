@@ -1,7 +1,7 @@
 package com.leapfrog.marketdata.services;
 
 
-public interface KafkaMessageSender {
+public interface KafkaEventProducer {
 
 
 
