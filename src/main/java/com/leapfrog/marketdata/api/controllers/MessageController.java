@@ -22,12 +22,6 @@ public class MessageController {
         this.fxMarketDataProvider = fxMarketDataProvider;
     }
 
-
-    @PostMapping
-    public void publish(@RequestBody MessageRequest request) {
-        kafkaTemplate.send("leapfrog", request.message());
-    }
-
     @GetMapping
     public void publish() {
         FxMarketData marketData = fxMarketDataProvider.GetNextMarketDataRecord();
