@@ -1,7 +1,7 @@
-package com.leapfrog.marketdata.services;
+package com.leapfrog.marketdata.services.interfaces;
 
 import com.leapfrog.marketdata.models.FxMarketData;
 
-public interface FxMarketDataProvider {
+public interface FxMarketDataFactory {
     FxMarketData GetNextMarketDataRecord();
 }

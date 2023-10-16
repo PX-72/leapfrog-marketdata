@@ -2,6 +2,7 @@ package com.leapfrog.marketdata.services;
 
 import com.leapfrog.marketdata.models.CcyPairs;
 import com.leapfrog.marketdata.models.FxMarketData;
+import com.leapfrog.marketdata.services.interfaces.FxMarketDataFactory;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -11,7 +12,7 @@ import java.util.Map;
 import java.util.Random;
 
 @Service
-public class FxMarketDataProviderImp implements FxMarketDataProvider {
+public class FxMarketDataFactoryImpl implements FxMarketDataFactory {
 
     private final Map<String, LowHigh> lowHighMap = new HashMap<>();
 

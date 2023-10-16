@@ -10,18 +10,6 @@ public class MarketDataApplication {
 
         var appCtx = SpringApplication.run(MarketDataApplication.class, args);
 
-        /*for(String s : appCtx.getBeanDefinitionNames()){
-            System.out.println(s);
-        }*/
     }
-
-    /*@Bean
-    CommandLineRunner commandLineRunner(KafkaTemplate<String, String> template){
-        return args -> {
-            for(int i = 0; i < 100; i++) {
-                template.send("leapfrog", Integer.toString(i));
-            }
-        };
-    }*/
 
 }
