@@ -14,6 +14,6 @@ public class MarketDataRequestServiceImpl implements MarketDataRequestService {
     @Override
     public Mono<Void> Run(MarketDataRequestConfiguration requestConfiguration){
         logger.info("Handling: {}", requestConfiguration);
-        return Mono.never();
+        return Mono.empty();
     }
 }
