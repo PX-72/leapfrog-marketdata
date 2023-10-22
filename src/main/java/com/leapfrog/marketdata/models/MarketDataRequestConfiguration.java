@@ -6,6 +6,6 @@ public record MarketDataRequestConfiguration (
     String configurationId,
     Integer size,
     Integer intervalInMillis,
-    Integer intervalDelayInMillis,
+    Integer initialDelayInMillis,
     List<String> ccyFilter
 ){}

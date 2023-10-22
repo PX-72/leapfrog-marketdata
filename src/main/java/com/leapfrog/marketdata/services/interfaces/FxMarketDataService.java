@@ -1,7 +1,8 @@
 package com.leapfrog.marketdata.services.interfaces;
 
-import reactor.core.publisher.Mono;
+import com.leapfrog.marketdata.models.MarketDataFilter;
 
 public interface FxMarketDataService {
-    Mono<Void> PublishNext();
+    void PublishNext();
+    void PublishNext(MarketDataFilter filter);
 }

@@ -19,6 +19,8 @@ public class MessageController {
 
     @GetMapping
     public Mono<Void> publish() {
-        return fxMarketDataService.PublishNext();
+        fxMarketDataService.PublishNext();
+
+        return Mono.empty();
     }
 }

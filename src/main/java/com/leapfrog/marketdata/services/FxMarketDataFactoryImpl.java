@@ -2,12 +2,14 @@ package com.leapfrog.marketdata.services;
 
 import com.leapfrog.marketdata.models.CcyPairs;
 import com.leapfrog.marketdata.models.FxMarketData;
+import com.leapfrog.marketdata.models.MarketDataFilter;
 import com.leapfrog.marketdata.services.interfaces.FxMarketDataFactory;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -22,7 +24,16 @@ public class FxMarketDataFactoryImpl implements FxMarketDataFactory {
 
     @Override
     public FxMarketData GetNextMarketDataRecord() {
-        String ccyPair = CcyPairs.MAJORS.get(getRandomValue(CcyPairs.MAJORS.size()));
+        return Get(CcyPairs.MAJORS);
+    }
+
+    @Override
+    public FxMarketData GetNextMarketDataRecord(MarketDataFilter filter) {
+        return Get(filter.ccyPairs());
+    }
+
+    private FxMarketData Get(List<String> ccyPairs) {
+        String ccyPair = ccyPairs.get(getRandomValue(ccyPairs.size()));
         MinMax minMax = getMinMaxForCcyPair(ccyPair);
         BigDecimal fxRate1 = getRandomBigDecimal(minMax.min, minMax.max, minMax.scale);
         BigDecimal fxRate2 = getRandomBigDecimal(minMax.min, minMax.max, minMax.scale);
