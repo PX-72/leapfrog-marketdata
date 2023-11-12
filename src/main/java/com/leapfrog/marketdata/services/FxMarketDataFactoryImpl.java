@@ -1,6 +1,7 @@
 package com.leapfrog.marketdata.services;
 
 import com.leapfrog.marketdata.models.CcyPairs;
+import com.leapfrog.marketdata.models.EcnList;
 import com.leapfrog.marketdata.models.FxMarketData;
 import com.leapfrog.marketdata.models.MarketDataFilter;
 import com.leapfrog.marketdata.services.interfaces.FxMarketDataFactory;
@@ -34,6 +35,7 @@ public class FxMarketDataFactoryImpl implements FxMarketDataFactory {
 
     private FxMarketData Get(List<String> ccyPairs) {
         String ccyPair = ccyPairs.get(getRandomValue(ccyPairs.size()));
+        String ecn = EcnList.ALL.get(getRandomValue(EcnList.ALL.size()));
         MinMax minMax = getMinMaxForCcyPair(ccyPair);
         BigDecimal fxRate1 = getRandomBigDecimal(minMax.min, minMax.max, minMax.scale);
         BigDecimal fxRate2 = getRandomBigDecimal(minMax.min, minMax.max, minMax.scale);
@@ -56,7 +58,7 @@ public class FxMarketDataFactoryImpl implements FxMarketDataFactory {
             }
         }
 
-        return new FxMarketData(ccyPair, bid, ask, currentLowHigh.low, currentLowHigh.high);
+        return new FxMarketData(ccyPair, bid, ask, currentLowHigh.low, currentLowHigh.high, ecn);
     }
 
 
