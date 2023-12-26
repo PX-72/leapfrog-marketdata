@@ -37,6 +37,7 @@ public class MarketDataRequestController {
                 () -> fxMarketDataService.PublishNext(new MarketDataFilter(requestConfiguration.ccyFilter())),
                 new ExecutionConfiguration(
                         requestConfiguration.size(),
+                        false,
                         requestConfiguration.intervalInMillis(),
                         requestConfiguration.initialDelayInMillis())
         );

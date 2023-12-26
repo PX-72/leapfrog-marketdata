@@ -35,18 +35,19 @@ public class ExecutorRunnerImpl implements ExecutorRunner {
 
         delay.set(executionConfiguration.intervalInMillis());
         remainingRuns.set(executionConfiguration.size());
+        boolean runForever = executionConfiguration.runForever();
 
         future = executor.scheduleWithFixedDelay(
-                () -> runner(runnable),
+                () -> runner(runnable, runForever),
                 executionConfiguration.initialDelayInMillis(),
                 delay.get(),
                 TimeUnit.MILLISECONDS
         );
     }
 
-    private void runner(Runnable runnable) {
+    private void runner(Runnable runnable, boolean runForever) {
         runnable.run();
-        if (remainingRuns.decrementAndGet() <= 0 && future != null) {
+        if (!runForever && remainingRuns.decrementAndGet() <= 0 && future != null) {
             future.cancel(false);
         }
     }
