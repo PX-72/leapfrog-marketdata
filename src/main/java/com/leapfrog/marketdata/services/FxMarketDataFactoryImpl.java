@@ -58,7 +58,7 @@ public class FxMarketDataFactoryImpl implements FxMarketDataFactory {
             }
         }
 
-        return new FxMarketData(ccyPair, bid, ask, currentLowHigh.low, currentLowHigh.high, ecn);
+        return new FxMarketData(ccyPair, bid, ask, currentLowHigh.low, currentLowHigh.high, ecn, minMax.scale);
     }
 
 

@@ -35,8 +35,9 @@ public class FxMarketDataServiceImpl implements FxMarketDataService {
                 new ExecutionConfiguration(
                         0,
                         true,
-                        1000,
-                        3000)
+                        100,
+                        3000
+                )
         );
     }
 
